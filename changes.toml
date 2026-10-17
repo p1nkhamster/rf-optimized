@@ -1,0 +1,201 @@
+# Build definition for Raspberry Flavoured Optimized. Every change carries a reason.
+[pack]
+name = "Raspberry Flavoured Optimized"
+version = "3.3.1-opt1"
+# Unofficial: credit stays with the original pack author.
+author = "raspmary (original pack); unofficial low-RAM build"
+# Licenses that allow us to bundle a jar in overrides/ or the server pack. Anything else must come from CurseForge.
+bundle_licenses = ["MIT", "LGPL-3.0-only", "LGPL-2.1-only", "GPL-3.0-only"]
+
+[upstream]
+project = 858803  # Raspberry Flavoured
+file = 8714808    # 3.3.1
+
+[jvm]
+min_mb = 1024
+max_mb = 3584
+client_args = [
+  "-XX:+UseG1GC", "-XX:MaxGCPauseMillis=50", "-XX:+UnlockExperimentalVMOptions",
+  "-XX:G1NewSizePercent=20", "-XX:G1ReservePercent=20", "-XX:G1HeapRegionSize=16M",
+  "-XX:+ParallelRefProcEnabled", "-XX:+UseStringDeduplication", "-XX:G1PeriodicGCInterval=30000",
+  "-XX:MinHeapFreeRatio=10", "-XX:MaxHeapFreeRatio=30", "-XX:ReservedCodeCacheSize=256M",
+]
+test_args = [
+  "-Xlog:gc*:file=logs/gc.log:uptime,level,tags", "-XX:NativeMemoryTracking=summary",
+]
+server_args = [
+  "-Xms2G", "-Xmx4G",
+  "-XX:+UseG1GC", "-XX:MaxGCPauseMillis=100", "-XX:+UnlockExperimentalVMOptions",
+  "-XX:G1NewSizePercent=30", "-XX:G1MaxNewSizePercent=40", "-XX:G1ReservePercent=20", "-XX:G1HeapRegionSize=8M",
+  "-XX:+ParallelRefProcEnabled", "-XX:+UseStringDeduplication", "-XX:+DisableExplicitGC",
+  "-XX:InitiatingHeapOccupancyPercent=15", "-XX:G1MixedGCLiveThresholdPercent=90",
+  "-XX:SurvivorRatio=32", "-XX:+PerfDisableSharedMem", "-XX:MaxTenuringThreshold=1",
+]
+
+# ---------------------------------------------------------------- removals (CurseForge project ids)
+[[remove]]
+project = 908741
+name = "Embeddium 0.3.18"
+reason = "replaced by Embeddium 0.3.18.1 (bug-fix release)"
+
+[[remove]]
+project = 627566
+name = "MemoryLeakFix 1.0.0"
+reason = "replaced by MemoryLeakFix 1.1.5 (more leak fixes)"
+
+[delete]
+# Canary is not added: RoadRunner (already in the pack) is the same Lithium port, and both together crash at boot.
+paths = ["config/canary.properties"]
+override_mods = []
+
+[server]
+# CurseForge project ids of client-only mods (left out of dist/server).
+client_only = [
+  923755, 254284, 949555, 272515, 667872, 459701, 407206, 250398, 818759, 623800,
+  557796, 628345, 844662, 568563, 448233, 852671, 686911, 1245453, 676136, 433760,
+  852662, 958094, 433068, 570368, 832644, 693961, 411816, 907547, 910506, 271740,
+  968891, 635427, 908741, 367706, 511770, 410295, 854176, 485245, 401648, 855017,
+  511040, 520110, 499826, 326950, 308240, 1163800, 704256, 701437, 60089, 882495,
+  551520, 905482, 334098,
+]
+client_only_files = []
+# Client-only assets (resource packs, textures, sounds, menu art): servers never load them.
+strip_paths = ["config/openloader/resources", "kubejs/assets", "config/fancymenu"]
+
+[server.properties]
+motd = "Raspberry Flavoured Optimized"
+view-distance = 8
+simulation-distance = 6
+sync-chunk-writes = false
+network-compression-threshold = 256
+max-tick-time = -1
+enable-command-block = false
+allow-flight = true
+
+# ---------------------------------------------------------------- additions (Modrinth, sha512-pinned)
+
+[[add]]  # https://modrinth.com/mod/spark
+slug = "spark"
+license = "GPL-3.0-only"
+version = "1.10.37-forge"
+filename = "spark-1.10.37-forge.jar"
+url = "https://cdn.modrinth.com/data/l6YH9Als/versions/1dlOe6ez/spark-1.10.37-forge.jar"
+sha512 = "0de99bfe5b31bed11ce2f7e173519a91542069a762b2d657bb1aa6517362255fcb8b8112ef28af5f4640db4d7e4b2618175830224c4d777e69489d8ac3c5d5db"
+reason = "profiler for server admins (/spark tps, /spark health)"
+side = "server"
+
+
+[[add]]  # https://modrinth.com/mod/clumps
+slug = "clumps"
+license = "MIT"
+version = "9.0.0+14"
+filename = "Clumps-forge-1.19.2-9.0.0+14.jar"
+url = "https://cdn.modrinth.com/data/Wnxd13zP/versions/3GURrv52/Clumps-forge-1.19.2-9.0.0%2B14.jar"
+sha512 = "a0a53e450da757d61898d99b0f28d33483e57882212b0f29c0e8e66ada6a6b4b79fd55f5ffbd69329a488924269926c7405f945481ffe1ae2cfc97dcad7bbcf7"
+reason = "merges XP orbs into one entity (fewer entities, less tick and render work)"
+
+[[add]]  # https://www.curseforge.com/minecraft/mc-mods/ai-improvements (All Rights Reserved: referenced, not bundled)
+slug = "ai-improvements"
+cf_project = 233019
+cf_file = 4019127
+license = "All-Rights-Reserved"
+reason = "cheaper mob AI goals (fewer pathfinding and look-at allocations)"
+
+[[add]]  # https://modrinth.com/mod/structure-layout-optimizer
+slug = "structure-layout-optimizer"
+license = "MIT"
+version = "1.0.10+1.19.2-forge"
+filename = "structure_layout_optimizer-forge-1.0.10.jar"
+url = "https://cdn.modrinth.com/data/ayPU0OHc/versions/wpAWKJ20/structure_layout_optimizer-forge-1.0.10.jar"
+sha512 = "61f76916c662d4355c27c4f2c94fa63dc4ce5d7c5345b93dd46cedc45034596d2b571ea3152cb77f46b67ad73fc1ef4b1870283a53a7dfe9b8b9c222ec38ae02"
+reason = "faster jigsaw structure generation (worldgen-heavy pack)"
+
+[[add]]  # https://modrinth.com/mod/smooth-boot-reloaded
+slug = "smooth-boot-reloaded"
+license = "MIT"
+version = "mc1.19.2-0.0.4"
+filename = "smoothboot(reloaded)-mc1.19.2-0.0.4.jar"
+url = "https://cdn.modrinth.com/data/z53V2L4P/versions/FzbfQajL/smoothboot%28reloaded%29-mc1.19.2-0.0.4.jar"
+sha512 = "daf937bc1752f4674476e9d3a1f29292b9bea54b41ca8f006d9265a925255404368364dad07c276fdfac27bc86845c87f2e6dea67c13b1df19baaf9f51dec7c5"
+reason = "caps worker threads during startup so a low-end PC stays responsive"
+
+[[add]]  # https://modrinth.com/mod/dynamic-fps
+slug = "dynamic-fps"
+license = "MIT"
+version = "3.11.4"
+filename = "dynamic-fps-3.11.4+minecraft-1.19.0-forge.jar"
+url = "https://cdn.modrinth.com/data/LQ3K71Q1/versions/n4lbGeR8/dynamic-fps-3.11.4%2Bminecraft-1.19.0-forge.jar"
+sha512 = "a0bbbe02c5e87acfb4e802be813134a7b2298842125de2cb6908e805ba63d2147d90cde6add92b644d34ad05b5b9c5ae3b63acceb930d60d8803afa646336d2c"
+reason = "drops FPS and frees GPU/CPU when the window is unfocused or minimised; runs a GC when minimised so the heap shrinks back (config ships with native downloads off)"
+side = "client"
+
+
+[[add]]  # https://modrinth.com/mod/chunky
+slug = "chunky"
+license = "GPL-3.0-only"
+version = "1.3.38"
+filename = "Chunky-1.3.38.jar"
+url = "https://cdn.modrinth.com/data/fALzjamp/versions/WNen5Iom/Chunky-1.3.38.jar"
+sha512 = "d4130bb529f29818118b49c27976ca24ed15711942e1afe7e35cbf3002c7b4e8631381df6e9137ddb0a1e6dc95e2a748c750da8e5cb4ece2790bfca7f2aee019"
+reason = "world pre-generation (server); removes worldgen spikes during play"
+side = "server"
+
+[[add]]  # https://modrinth.com/mod/embeddium
+slug = "embeddium"
+license = "LGPL-3.0-only"
+version = "0.3.18.1+mc1.19.2"
+filename = "embeddium-0.3.18.1+mc1.19.2.jar"
+url = "https://cdn.modrinth.com/data/sk9rgfiA/versions/AYqEbec0/embeddium-0.3.18.1%2Bmc1.19.2.jar"
+sha512 = "33d88ab9f2bb73801d53461d0b7f7149ddae531373b4746c05259a4608e3115d7966a8643bac4c76e66a1cbc39d6f3a4929bdd95237bb79a6274ac16c6f53b46"
+reason = "update 0.3.18 -> 0.3.18.1"
+side = "client"
+
+[[add]]  # https://modrinth.com/mod/memoryleakfix
+slug = "memoryleakfix"
+license = "LGPL-2.1-only"
+version = "v1.1.5"
+filename = "memoryleakfix-forge-1.17+-1.1.5.jar"
+url = "https://cdn.modrinth.com/data/NRjRiSSD/versions/3w0IxNtk/memoryleakfix-forge-1.17%2B-1.1.5.jar"
+sha512 = "f4d7b0eb70a605ffb81bebd24fd125d8c0bc7917c3e00f27bee64988836323de5a3d205e89a4a5f8ae75741ca874f62996e7c8e5ed489dc3c1824337e93d263f"
+reason = "update 1.0.0 -> 1.1.5"
+
+# ---------------------------------------------------------------- config edits (key-level, see rfopt/patches.py)
+[[config]]
+file = "config/modernfix-mixins.properties"
+set = { "mixin.perf.dynamic_resources" = "true" }
+reason = "bake block/item models on demand instead of all up front: the biggest client heap saving"
+
+[[config]]
+file = "config/modernfix-mixins.properties"
+set = { "mixin.perf.clear_mixin_classinfo" = "true", "mixin.perf.deduplicate_location" = "true", "mixin.perf.dynamic_entity_renderers" = "true", "mixin.perf.deduplicate_climate_parameters" = "true", "mixin.perf.remove_spawn_chunks" = "true" }
+reason = "free Mixin/ASM class data after load (~50 MB), share ResourceLocation strings (1M+ instances), build entity renderers on demand, share worldgen climate data, don't keep 441 spawn chunks loaded"
+
+[[config]]
+file = "config/ferritecore-mixin.toml"
+set = { compactFastMap = "true" }
+reason = "smaller blockstate property maps (slightly slower lookups, much less memory with this many blocks)"
+
+[[config]]
+file = "config/embeddium-options.json"
+set = { "performance.chunk_builder_threads" = 2 }
+reason = "fixed 2 chunk-build threads: each thread holds its own buffers, and an 8 GB PC is usually 4-6 cores"
+
+[[config]]
+file = "config/jei/jei-client.ini"
+set = { "search.TooltipSearchMode" = "REQUIRE_PREFIX" }
+reason = "JEI no longer indexes every item tooltip into its search tree (search tooltips with #)"
+
+[[config]]
+file = "config/supplementaries-client.toml"
+set = { "blocks.wall_lantern.fast_lanterns" = "true", "blocks.hanging_sign.fast_signs" = "true" }
+reason = "wall lanterns and hanging signs use baked models instead of per-block renderers"
+
+[[config]]
+file = "config/prettyrain.json5"
+replace = [['"maxParticleAmount": 1500', '"maxParticleAmount": 600'], ['"particleDensity": 100', '"particleDensity": 60']]
+reason = "fewer rain/snow particles alive at once (CPU + GPU); still clearly rainy"
+
+[[config]]
+file = "config/effective_fg-client.toml"
+set = { "\"Water Effects\".\"splash abundance\"" = 2, "Cascades.\"cascade particles\"" = 0.5 }
+reason = "fewer water splash / waterfall-mist particles"

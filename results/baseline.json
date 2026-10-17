@@ -1,0 +1,400 @@
+{
+ "label": "baseline",
+ "dist": "dist/baseline",
+ "options": [],
+ "samples": [
+  {
+   "t": 127,
+   "fps": 115
+  },
+  {
+   "t": 132,
+   "fps": 119
+  },
+  {
+   "t": 137,
+   "fps": 118
+  },
+  {
+   "t": 142,
+   "fps": 119
+  },
+  {
+   "t": 147,
+   "fps": 118
+  },
+  {
+   "t": 152,
+   "fps": 118
+  },
+  {
+   "t": 157,
+   "fps": 118
+  },
+  {
+   "t": 162,
+   "fps": 118
+  },
+  {
+   "t": 167,
+   "fps": 119
+  },
+  {
+   "t": 174,
+   "fps": 111
+  },
+  {
+   "t": 176,
+   "fps": 118
+  },
+  {
+   "t": 181,
+   "fps": 119
+  },
+  {
+   "t": 186,
+   "fps": 112
+  },
+  {
+   "t": 191,
+   "fps": 116
+  },
+  {
+   "t": 196,
+   "fps": 117
+  },
+  {
+   "t": 201,
+   "fps": 115
+  },
+  {
+   "t": 206,
+   "fps": 118
+  },
+  {
+   "t": 211,
+   "fps": 118
+  },
+  {
+   "t": 216,
+   "fps": 119
+  },
+  {
+   "t": 221,
+   "fps": 119
+  },
+  {
+   "t": 226,
+   "fps": 119
+  },
+  {
+   "t": 231,
+   "fps": 119
+  },
+  {
+   "t": 236,
+   "fps": 119
+  },
+  {
+   "t": 241,
+   "fps": 119
+  },
+  {
+   "t": 249,
+   "fps": 119
+  },
+  {
+   "t": 251,
+   "fps": 116
+  },
+  {
+   "t": 256,
+   "fps": 118
+  },
+  {
+   "t": 261,
+   "fps": 118
+  },
+  {
+   "t": 266,
+   "fps": 117
+  },
+  {
+   "t": 271,
+   "fps": 116
+  },
+  {
+   "t": 276,
+   "fps": 115
+  },
+  {
+   "t": 281,
+   "fps": 118
+  },
+  {
+   "t": 286,
+   "fps": 118
+  },
+  {
+   "t": 291,
+   "fps": 117
+  },
+  {
+   "t": 296,
+   "fps": 119
+  },
+  {
+   "t": 301,
+   "fps": 119
+  },
+  {
+   "t": 306,
+   "fps": 119
+  },
+  {
+   "t": 311,
+   "fps": 119
+  },
+  {
+   "t": 316,
+   "fps": 118
+  },
+  {
+   "t": 325,
+   "fps": 118
+  },
+  {
+   "t": 327,
+   "fps": 118
+  },
+  {
+   "t": 332,
+   "fps": 118
+  },
+  {
+   "t": 337,
+   "fps": 119
+  },
+  {
+   "t": 342,
+   "fps": 119
+  },
+  {
+   "t": 347,
+   "fps": 119
+  },
+  {
+   "t": 352,
+   "fps": 118
+  },
+  {
+   "t": 357,
+   "fps": 119
+  },
+  {
+   "t": 362,
+   "fps": 118
+  },
+  {
+   "t": 367,
+   "fps": 119
+  },
+  {
+   "t": 372,
+   "fps": 119
+  },
+  {
+   "t": 377,
+   "fps": 119
+  },
+  {
+   "t": 382,
+   "fps": 119
+  },
+  {
+   "t": 387,
+   "fps": 119
+  },
+  {
+   "t": 392,
+   "fps": 119
+  },
+  {
+   "t": 399,
+   "fps": 119
+  },
+  {
+   "t": 402,
+   "fps": 119
+  },
+  {
+   "t": 407,
+   "fps": 119
+  }
+ ],
+ "title_after_s": 50.0,
+ "menu": {
+  "mark": "menu",
+  "heap_before_gc_mb": 1765,
+  "heap_live_mb": 1240,
+  "heap_committed_mb": 3120,
+  "VmHWM": 4582,
+  "VmRSS": 4582,
+  "native": {
+   "Java Heap": 3120,
+   "Class": 55,
+   "Thread": 9,
+   "Code": 63,
+   "GC": 174,
+   "Compiler": 0,
+   "Internal": 0,
+   "Other": 19,
+   "Symbol": 53,
+   "Native Memory Tracking": 28,
+   "Arena Chunk": 0,
+   "Tracing": 0,
+   "Module": 2,
+   "Safepoint": 0,
+   "Synchronization": 0,
+   "Serviceability": 0,
+   "Metaspace": 225,
+   "String Deduplication": 19,
+   "Object Monitors": 0,
+   "Total": 3774
+  }
+ },
+ "joined_after_s": 110.1,
+ "spawn": {
+  "mark": "spawn",
+  "heap_before_gc_mb": 2394,
+  "heap_live_mb": 1748,
+  "heap_committed_mb": 3280,
+  "VmHWM": 5010,
+  "VmRSS": 5010,
+  "native": {
+   "Java Heap": 3280,
+   "Class": 63,
+   "Thread": 13,
+   "Code": 115,
+   "GC": 183,
+   "Compiler": 1,
+   "Internal": 1,
+   "Other": 24,
+   "Symbol": 59,
+   "Native Memory Tracking": 33,
+   "Arena Chunk": 4,
+   "Tracing": 0,
+   "Module": 2,
+   "Safepoint": 0,
+   "Synchronization": 0,
+   "Serviceability": 0,
+   "Metaspace": 265,
+   "String Deduplication": 21,
+   "Object Monitors": 0,
+   "Total": 4068
+  },
+  "mspt": 4.6
+ },
+ "travel1": {
+  "mark": "travel1",
+  "heap_before_gc_mb": 2409,
+  "heap_live_mb": 1870,
+  "heap_committed_mb": 3280,
+  "VmHWM": 5081,
+  "VmRSS": 5073,
+  "native": {
+   "Java Heap": 3280,
+   "Class": 63,
+   "Thread": 13,
+   "Code": 126,
+   "GC": 183,
+   "Compiler": 1,
+   "Internal": 1,
+   "Other": 24,
+   "Symbol": 59,
+   "Native Memory Tracking": 33,
+   "Arena Chunk": 1,
+   "Tracing": 0,
+   "Module": 2,
+   "Safepoint": 0,
+   "Synchronization": 0,
+   "Serviceability": 0,
+   "Metaspace": 268,
+   "String Deduplication": 22,
+   "Object Monitors": 0,
+   "Total": 4080
+  },
+  "mspt": 5.2
+ },
+ "travel2": {
+  "mark": "travel2",
+  "heap_before_gc_mb": 2538,
+  "heap_live_mb": 1924,
+  "heap_committed_mb": 3280,
+  "VmHWM": 5081,
+  "VmRSS": 5078,
+  "native": {
+   "Java Heap": 3280,
+   "Class": 64,
+   "Thread": 12,
+   "Code": 131,
+   "GC": 183,
+   "Compiler": 1,
+   "Internal": 1,
+   "Other": 19,
+   "Symbol": 59,
+   "Native Memory Tracking": 33,
+   "Arena Chunk": 2,
+   "Tracing": 0,
+   "Module": 2,
+   "Safepoint": 0,
+   "Synchronization": 0,
+   "Serviceability": 0,
+   "Metaspace": 270,
+   "String Deduplication": 22,
+   "Object Monitors": 0,
+   "Total": 4084
+  },
+  "mspt": 5.1
+ },
+ "return": {
+  "mark": "return",
+  "heap_before_gc_mb": 1869,
+  "heap_live_mb": 1812,
+  "heap_committed_mb": 3280,
+  "VmHWM": 5089,
+  "VmRSS": 5089,
+  "native": {
+   "Java Heap": 3280,
+   "Class": 64,
+   "Thread": 11,
+   "Code": 132,
+   "GC": 183,
+   "Compiler": 1,
+   "Internal": 1,
+   "Other": 18,
+   "Symbol": 59,
+   "Native Memory Tracking": 33,
+   "Arena Chunk": 0,
+   "Tracing": 0,
+   "Module": 2,
+   "Safepoint": 0,
+   "Synchronization": 0,
+   "Serviceability": 0,
+   "Metaspace": 270,
+   "String Deduplication": 22,
+   "Object Monitors": 0,
+   "Total": 4083
+  },
+  "mspt": 3.7
+ },
+ "done": true,
+ "peak_rss_mb": 5090,
+ "gc": {
+  "pauses": 207,
+  "total_ms": 3465,
+  "max_ms": 84.647,
+  "p99_ms": 67.254,
+  "full_gcs": 0
+ }
+}

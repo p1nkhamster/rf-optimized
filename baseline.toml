@@ -1,0 +1,68 @@
+# Stock Raspberry Flavoured + spark, used only to measure the baseline.
+[pack]
+name = "Raspberry Flavoured Baseline"
+version = "3.3.1"
+author = "raspmary"
+
+[upstream]
+project = 858803  # Raspberry Flavoured
+file = 8714808    # 3.3.1
+
+[jvm]
+min_mb = 2048
+max_mb = 4096
+client_args = [
+  "-XX:+UseG1GC", "-XX:MaxGCPauseMillis=50", "-XX:+UnlockExperimentalVMOptions",
+  "-XX:G1NewSizePercent=20", "-XX:G1ReservePercent=20", "-XX:G1HeapRegionSize=16M",
+  "-XX:+ParallelRefProcEnabled", "-XX:+UseStringDeduplication", "-XX:G1PeriodicGCInterval=30000",
+  "-XX:ReservedCodeCacheSize=256M",
+]
+test_args = [
+  "-Xlog:gc*:file=logs/gc.log:uptime,level,tags", "-XX:NativeMemoryTracking=summary",
+]
+server_args = [
+  "-Xms2G", "-Xmx4G",
+  "-XX:+UseG1GC", "-XX:MaxGCPauseMillis=100", "-XX:+UnlockExperimentalVMOptions",
+  "-XX:G1NewSizePercent=30", "-XX:G1MaxNewSizePercent=40", "-XX:G1ReservePercent=20", "-XX:G1HeapRegionSize=8M",
+  "-XX:+ParallelRefProcEnabled", "-XX:+UseStringDeduplication", "-XX:+DisableExplicitGC",
+  "-XX:InitiatingHeapOccupancyPercent=15", "-XX:G1MixedGCLiveThresholdPercent=90",
+  "-XX:SurvivorRatio=32", "-XX:+PerfDisableSharedMem", "-XX:MaxTenuringThreshold=1",
+]
+
+[server]
+client_only = [
+  923755, 254284, 949555, 272515, 667872, 459701, 407206, 250398, 818759, 623800,
+  557796, 628345, 844662, 568563, 448233, 852671, 686911, 1245453, 676136, 433760,
+  852662, 958094, 433068, 570368, 832644, 693961, 411816, 907547, 910506, 271740,
+  968891, 635427, 908741, 367706, 511770, 410295, 854176, 485245, 401648, 855017,
+  511040, 520110, 499826, 326950, 308240, 1163800, 704256, 701437, 60089, 882495,
+  551520, 905482, 334098,
+]
+
+[server.properties]
+motd = "Raspberry Flavoured Optimized"
+view-distance = 8
+simulation-distance = 6
+sync-chunk-writes = false
+network-compression-threshold = 256
+max-tick-time = -1
+enable-command-block = false
+allow-flight = true
+
+[[add]]  # https://modrinth.com/mod/spark
+slug = "spark"
+version = "1.10.37-forge"
+filename = "spark-1.10.37-forge.jar"
+url = "https://cdn.modrinth.com/data/l6YH9Als/versions/1dlOe6ez/spark-1.10.37-forge.jar"
+sha512 = "0de99bfe5b31bed11ce2f7e173519a91542069a762b2d657bb1aa6517362255fcb8b8112ef28af5f4640db4d7e4b2618175830224c4d777e69489d8ac3c5d5db"
+reason = "profiler; server only"
+side = "server"
+
+[[add]]  # https://modrinth.com/mod/chunky
+slug = "chunky"
+version = "1.3.38"
+filename = "Chunky-1.3.38.jar"
+url = "https://cdn.modrinth.com/data/fALzjamp/versions/WNen5Iom/Chunky-1.3.38.jar"
+sha512 = "d4130bb529f29818118b49c27976ca24ed15711942e1afe7e35cbf3002c7b4e8631381df6e9137ddb0a1e6dc95e2a748c750da8e5cb4ece2790bfca7f2aee019"
+reason = "world pre-generation (server); removes worldgen spikes during play"
+side = "server"

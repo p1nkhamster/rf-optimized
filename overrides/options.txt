@@ -1,0 +1,7 @@
+renderDistance:8
+simulationDistance:6
+mipmapLevels:2
+biomeBlendRadius:1
+entityDistanceScaling:0.75
+particles:1
+maxFps:120

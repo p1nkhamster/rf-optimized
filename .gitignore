@@ -1,0 +1,8 @@
+.cache/
+dist/
+__pycache__/
+# measurement logs, heap histograms, worlds and screenshots are large and contain local paths;
+# only the summaries are kept
+results/*
+!results/*.json
+!results/*-run.txt

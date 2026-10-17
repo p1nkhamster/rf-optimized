@@ -1,0 +1,24 @@
+{
+ "label": "opt1",
+ "startup_s": 33.1,
+ "idle_live_heap_mb": 959,
+ "idle_rss_mb": 2747,
+ "pregen_s": 74.2,
+ "pregen_chunks": 1089,
+ "after_pregen_live_heap_mb": 840,
+ "after_pregen_rss_mb": 3645,
+ "errors": [
+  "Easy Shulker Boxes/",
+  "com.structureessentials.StructureEssentials/",
+  "ihh.propertymodifier.Logger/",
+  "mixin/",
+  "mod.adrenix.nostalgic.util.common.log.ModLogger/",
+  "net.mehvahdjukaar.every_compat.EveryCompat/",
+  "net.minecraft.server.ServerAdvancementManager/",
+  "net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener/",
+  "net.minecraft.tags.TagLoader/",
+  "net.minecraft.world.level.storage.loot.LootTables/",
+  "net.minecraftforge.fml.loading.RuntimeDistCleaner/DISTXFORM"
+ ],
+ "mixin_failures": []
+}

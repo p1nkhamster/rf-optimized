@@ -1,0 +1,6 @@
+# Merged into options.txt for test builds: keep the integrated server running while unfocused.
+pauseOnLostFocus:false
+tutorialStep:none
+joinedFirstServer:true
+skipMultiplayerWarning:true
+fullscreen:false
